@@ -65,13 +65,14 @@ PromptProbe therefore uses a **hybrid detection architecture**:
                     ▼         ▼         ▼
                 VULNERABLE  REVIEW     PASS
 Features
-Security Testing
+### Security Testing
 
 PromptProbe currently includes 15 security tests covering:
 
 Category	Examples
 System extraction	System prompt disclosure
 Direct injection	Instruction override
+```
 Data exfiltration	Secret discovery
 Excessive agency	Unauthorized actions
 Jailbreak	Persona replacement
@@ -81,7 +82,7 @@ Obfuscation	Base64-encoded instructions
 Indirect injection	External-content instructions
 Multilingual attacks	Cross-language instruction override
 Output handling	Reflection and boundary tests
-Deterministic Detection
+### Deterministic Detection
 
 The scanner contains fixed security detectors for:
 
@@ -92,7 +93,7 @@ Prompt injection success indicators
 
 These detectors provide concrete evidence that can be inspected directly.
 
-Semantic Security Analysis
+## Semantic Security Analysis
 
 PromptProbe can optionally send the target response to a separate local LLM acting as a security analyst.
 
@@ -107,7 +108,7 @@ Exhibited jailbreak or role manipulation behavior
 
 The AI analyst receives the payload and target response, but the response is treated as the primary evidence.
 
-Hybrid Correlation
+## Hybrid Correlation
 
 PromptProbe does not allow the AI analyst to override deterministic evidence.
 
@@ -134,7 +135,7 @@ This helps separate:
 Confirmed technical evidence
 AI-detected suspicious behavior requiring review
 No detected security issue
-Risk Scoring
+## Risk Scoring
 
 Confirmed vulnerabilities contribute to a severity-based risk score.
 
@@ -148,7 +149,7 @@ The scanner calculates the average highest severity across vulnerable tests and 
 
 Semantic REVIEW findings do not directly increase the confirmed vulnerability score.
 
-Example Scan
+## Example Scan
 
 Example scan against the local vulnerable LLM lab:
 
@@ -202,7 +203,7 @@ The semantic analyst identified evidence that the target accepted the attacker's
 
 This demonstrates the difference between rule-based evidence and semantic behavioral detection.
 
-Payload Format
+## Payload Format
 
 Payloads are stored as structured JSON metadata.
 
@@ -225,7 +226,7 @@ Example:
 
 This makes the payload library extensible and allows additional attack techniques to be added without changing the scanner architecture.
 
-Project Structure
+## Project Structure
 promptprobe/
 │
 ├── scanner/
@@ -252,7 +253,7 @@ promptprobe/
 │   └── LLM_Vulnerable_lab/
 │
 └── README.md
-Local Architecture
+## Local Architecture
 
 PromptProbe can operate completely locally.
 
@@ -277,7 +278,7 @@ PromptProbe can operate completely locally.
 
 No external LLM API is required for the semantic analysis.
 
-Installation
+## Installation
 Requirements
 Python 3
 Ollama
@@ -301,7 +302,7 @@ python3 -m venv venv
 source venv/bin/activate
 
 pip install requests
-Running PromptProbe
+## Running PromptProbe
 
 Basic scan:
 
@@ -333,7 +334,7 @@ python scanner.py \
   --target-type ollama-lab \
   --semantic \
   --output report.json
-Ethical Use
+## Ethical Use
 
 PromptProbe is intended for:
 
@@ -346,7 +347,7 @@ Security education
 
 Only test systems that you own or have explicit authorization to assess.
 
-Project Status
+## Project Status
 Current MVP
 Structured attack payload library
 HTTP target scanner
