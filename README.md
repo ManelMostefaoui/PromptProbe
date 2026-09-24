@@ -452,10 +452,4 @@ This distinction is particularly important when testing LLM applications because
 **Manel Mostefaoui**
 Cybersecurity Student — ESI Sidi Bel Abbès
 
-Areas of interest:
 
-- Cybersecurity
-- LLM Security
-- Network Security
-- Cloud & Infrastructure
-- Security Automation
